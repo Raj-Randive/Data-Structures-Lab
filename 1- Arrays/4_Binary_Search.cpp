@@ -2,27 +2,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int binarySearch(int arr[], int start, int end, int key){
+void binarySearch(int arr[], int size, int key){
 
-    int mid;
-    for (int i = start; i < end; i++)
-    {
-        mid = (start+end)/2;
-        if (arr[mid] < key){
-            start = mid+1;
+    int i=0, mid, beg = 0, end;
+    end = size;
+    mid = (beg + end)/2;
+    while( beg <= end && arr[mid] != key ) {
+        if (key < mid) {
+            end = mid - 1;
         }
-        else{
-            end = mid-1;
+        else {
+            beg = mid + 1;
         }
-
-        if (arr[mid] == key){
-            cout << "Found at position: " << mid+1;
-        }
-        else{
-            cout << "Not Found";
-        }
+        mid = (beg + end)/2;
+        i++;
     }
-    return 0;
+    if (arr[mid] == key) {
+        cout << "The element found at position: " << (mid+1) << endl;
+    }
+    else {
+        cout << "The element NOT found!" << endl;
+    }
 }
 
 void sortArray(int arr[], int size){
@@ -64,11 +64,11 @@ int main()
     sortArray(arr, n);
     showArray(arr, n);
 
-    int key, start = 0, end = (n-1);
+    int key;
     cout << "\n\nEnter the element you want to find: ";
     cin >> key;
 
-    binarySearch(arr, start, end, key);
+    binarySearch(arr, n, key);
     
     delete []arr;
     return 0;
