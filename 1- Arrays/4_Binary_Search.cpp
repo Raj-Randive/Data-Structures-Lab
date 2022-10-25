@@ -2,12 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void binarySearch(int arr[], int size, int key){
+void binarySearch(int arr1[], int size, int key){
 
-    int i=0, mid, beg = 0, end;
+    int mid, beg = 0, end;
     end = size;
     mid = (beg + end)/2;
-    while( beg <= end && arr[mid] != key ) {
+    while( beg <= end && arr1[mid] != key ) {
         if (key < mid) {
             end = mid - 1;
         }
@@ -15,10 +15,9 @@ void binarySearch(int arr[], int size, int key){
             beg = mid + 1;
         }
         mid = (beg + end)/2;
-        i++;
     }
-    if (arr[mid] == key) {
-        cout << "The element found at position: " << (mid+1) << endl;
+    if (arr1[mid] == key) {
+        cout << "\n\nThe element found at position: " << (mid+1) << endl;
     }
     else {
         cout << "The element NOT found!" << endl;
@@ -51,6 +50,7 @@ void showArray(int arr[], int size){
 int main()
 {
     int n;
+    int k;
     cout << "Enter the number of elements you want in the array: ";
     cin >> n;
     int *arr = new int[n];
@@ -64,11 +64,10 @@ int main()
     sortArray(arr, n);
     showArray(arr, n);
 
-    int key;
     cout << "\n\nEnter the element you want to find: ";
-    cin >> key;
+    cin >> k;
 
-    binarySearch(arr, n, key);
+    binarySearch(arr, n, k);
     
     delete []arr;
     return 0;
