@@ -36,7 +36,6 @@ void pop(struct stack **stak) {
     }
     else {
         (ptr->top)--;
-        //return (stk_ref->top--); //Only delete dont return
         return;
     }
 }
