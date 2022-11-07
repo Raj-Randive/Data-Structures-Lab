@@ -18,7 +18,7 @@ struct stack *createStack(int cap) {
 void push(struct stack **stak, int item) {
     struct stack *ptr = *stak;
     if (ptr->top == (ptr->size - 1)) {
-        cout << "Overflow" << endl;
+        cout << "Stack Overflow" << endl;
         return;
     }
     else {
@@ -47,7 +47,7 @@ int main() {
     push(&s, 12);
     push(&s, 45);
     push(&s, 67);
-    temp = pop(&s);
+    // temp = pop(&s);
 
     for (int i = s->top; i >=0; i--)
     {
