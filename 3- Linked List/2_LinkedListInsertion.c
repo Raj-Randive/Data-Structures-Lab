@@ -38,9 +38,9 @@ struct Node * insertAtFirst( struct Node * head, int data){
     return ptr;
 }
 
-struct Node * insertAtIndex( struct Node * head, int data, int index){
 
-    struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+struct Node * insertAtIndex( struct Node * head, int data, int index){
+    struct Node * p1 = (struct Node *)malloc(sizeof(struct Node));
     
     struct Node * p = head;
     int i=0;
@@ -49,9 +49,10 @@ struct Node * insertAtIndex( struct Node * head, int data, int index){
         p = p->next;
         i++;
     }
-    ptr->data = data;
-    ptr->next = p->next;
-    p->next = ptr;
+    
+    p1->data = data;
+    p1->next = p->next;
+    p->next = p1;
 
     return head;
 }
@@ -109,11 +110,11 @@ int main()
     LinkedListTraversal(head);
     printf("\n");
 
-    // Insert at Start/First Node
-    printf("\nLinked List insertion at Start.\n");
-    head = insertAtFirst(head, 78);
-    LinkedListTraversal(head);
-    printf("\n");
+    // // Insert at Start/First Node
+    // printf("\nLinked List insertion at Start.\n");
+    // head = insertAtFirst(head, 78);
+    // LinkedListTraversal(head);
+    // printf("\n");
 
     // Insert at index
     printf("\nLinked List insertion at index.\n");
@@ -121,17 +122,17 @@ int main()
     LinkedListTraversal(head);
     printf("\n");
 
-    // Insert at end
-    printf("\nLinked List insertion at the end.\n");
-    head = insertAtEnd(head, 69);
-    LinkedListTraversal(head);
-    printf("\n");
+    // // Insert at end
+    // printf("\nLinked List insertion at the end.\n");
+    // head = insertAtEnd(head, 69);
+    // LinkedListTraversal(head);
+    // printf("\n");
 
-    // Insert after a Node
-    printf("\nLinked List insertion after a Node.\n");
-    head = insertAfterNode(head, second, 99);
-    LinkedListTraversal(head);
-    printf("\n");
+    // // Insert after a Node
+    // printf("\nLinked List insertion after a Node.\n");
+    // head = insertAfterNode(head, second, 99);
+    // LinkedListTraversal(head);
+    // printf("\n");
 
     return 0;
 }
