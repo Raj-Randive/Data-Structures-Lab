@@ -112,7 +112,6 @@ void postorder(struct node *root){
 
 }
 
-
 int main()
 {
     struct node *p = createNode(4);
@@ -122,7 +121,7 @@ int main()
     struct node *p4 = createNode(2);
 
     p->left = p1;
-    p->right = p2;
+    p->right = p2;  
     p1->left = p3;
     p1->right = p4;
 

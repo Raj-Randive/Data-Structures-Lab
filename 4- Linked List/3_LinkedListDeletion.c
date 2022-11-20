@@ -95,7 +95,6 @@ struct Node * deleteWithGivenValue(struct Node * head, int value){
         printf("\nThe value NOT found in the linked list.\n");
     }
     
-
     return head;
 }
 
