@@ -34,31 +34,43 @@ void inorder(struct node * root){
     }
 }   
 
-void insert(struct node * root, int key){
-    struct node * prev =  NULL;
-
-    while (root != NULL){
-        prev = root;
-        if (key == root->data){
-            return;
-        }
-        else if(key < root->data){
-            root = root->left;
-        }
-        else{
-            root = root->right;
-        }
+struct node * inOrderPredecessor(struct node * root){
+    root = root->left;
+    while(root->right != NULL){
+        root = root->right;
     }
+    return root;
+}
 
-    struct node * new = createNode(key);
-    if (key < prev->data)
+struct node * deleteNode(struct node * root, int value){
+
+    struct node * iPre;
+
+    if(root == NULL){
+        return NULL;
+    }
+    if (root->left == NULL && root->right == NULL)
     {
-        prev->left = new;
+        free(root);
+        return NULL;
     }
-    else{
-        prev->right = new;
+    
+
+    // Search for the node to be deleted.
+    if (value < root->data){
+        deleteNode(root->left, value);
+    }
+    else if(value > root->data){
+        deleteNode(root->right, value);
     }
 
+    // Deleting the Node
+    else{
+        iPre = inOrderPredecessor(root);
+        root->data = iPre->data;
+        root->left = deleteNode(root->left, iPre->data);
+    }
+    return root;
 }
 
 int main(){
@@ -78,8 +90,8 @@ int main(){
     inorder(p);
 
 
-    printf("\n\n -> Inorder Traversal after insertion: ");
-    insert(p, 2);
+    printf("\n\n -> Inorder Traversal after deletion: ");
+    deleteNode(p, 6);
     inorder(p);
     // printf("\n\n%d " , p->right->right->data);
 
