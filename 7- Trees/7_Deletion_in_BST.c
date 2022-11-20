@@ -1,4 +1,4 @@
-// BINARY SEARCH TREE
+// Binary Search Trees
 /*
            tree:
              5
@@ -89,9 +89,8 @@ int main(){
     printf("\n -> Inorder Traversal : ");
     inorder(p);
 
-
     printf("\n\n -> Inorder Traversal after deletion: ");
-    deleteNode(p, 6);
+    deleteNode(p, 3);
     inorder(p);
     // printf("\n\n%d " , p->right->right->data);
 
