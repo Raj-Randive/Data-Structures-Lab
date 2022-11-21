@@ -33,6 +33,17 @@ int isFull(struct stack * ptr){
     }
 }
 
+int peek(struct stack* sp, int i){
+    int arrayInd = sp->top -i + 1;
+    if(arrayInd < 0){
+        printf("Not a valid position for the stack\n");
+        return -1;
+    }
+    else{
+        return sp->arr[arrayInd];
+    }
+}
+
 void push(struct stack * ptr, int value){
     if(isFull(ptr)){
         printf("Stack overflow! Cannot push %d to the stack.", value);
@@ -77,6 +88,8 @@ int main(){
     temp = pop(s1);
 
     printStack(s1);
+
+    printf("\n\n%d " ,peek(s1, 2));
 
     return 0;
 }
